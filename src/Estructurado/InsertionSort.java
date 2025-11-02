@@ -14,6 +14,7 @@ import javax.swing.*;
 public class InsertionSort extends JFrame {
     int [] vectorNums;
     String regex =  "^\\d+(\\.\\d+)?$";
+    int count;
 
     public InsertionSort() {
         initComponents();
@@ -25,6 +26,12 @@ public class InsertionSort extends JFrame {
     }
 
     private void btnCrearVector(ActionEvent e) {
+
+        if(vectorNums != null){
+            JOptionPane.showMessageDialog(this, "El Vector Ya Se Encuentra Creado", "Error: Crear Vector",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         if(!txtTamano.getText().matches(regex)){
             JOptionPane.showMessageDialog(this, "Error: Debe Ingresar Un Numero Valido", "Error: FormatoInvalido",
@@ -47,20 +54,31 @@ public class InsertionSort extends JFrame {
             return;
         }
 
-        if(vectorNums != null){
-            JOptionPane.showMessageDialog(this, "El Vector Ya Se Encuentra Creado", "Error: Crear Vector",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-
         vectorNums = new int[tamano];
         JOptionPane.showMessageDialog(this, "Vector Creado Exitosamente\n" +
                         "vectorNums["+vectorNums.length+"]","Crear Vector", JOptionPane.INFORMATION_MESSAGE);
 
-
+        txtDatos.append("Vector["+tamano+"] Creado Exitosamente\n");
         btnIngresar.setEnabled(true);
 
+    }
+
+    private void btnIngresar(ActionEvent e) {
+
+        if(txtElementos.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe Ingresar Un Elemento", "Error: Ingresar Elemento",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if(!txtElementos.getText().matches(regex)){
+            JOptionPane.showMessageDialog(this, "Error: Debe Ingresar Un Numero Valido", "Error: FormatoInvalido",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+       int element = Integer.parseInt(txtElementos.getText());
+       vectorNums[count] = element;
+       count++;
     }
 
     private void initComponents() {
@@ -108,6 +126,7 @@ public class InsertionSort extends JFrame {
         btnIngresar.setText("Ingresar");
         btnIngresar.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 14));
         btnIngresar.setName("btnIngresar");
+        btnIngresar.addActionListener(e -> btnIngresar(e));
 
         //======== scrollPane1 ========
         {
@@ -143,35 +162,39 @@ public class InsertionSort extends JFrame {
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(50, 50, 50)
                     .addGroup(contentPaneLayout.createParallelGroup()
                         .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addGap(81, 81, 81)
-                                    .addComponent(btnIngresar))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                        .addComponent(label3)
-                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                            .addComponent(txtElementos, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-                                            .addGap(13, 13, 13))))
-                                .addGroup(contentPaneLayout.createSequentialGroup()
-                                    .addGap(31, 31, 31)
-                                    .addComponent(label2)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(contentPaneLayout.createParallelGroup()
-                                        .addComponent(btnCrearVector)
-                                        .addComponent(txtTamano, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE))))
-                            .addGap(83, 83, 83)
-                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 211, GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                            .addGap(81, 81, 81)
+                                            .addComponent(btnIngresar))
+                                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                            .addGap(40, 40, 40)
+                                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                                .addComponent(label3)
+                                                .addGroup(contentPaneLayout.createSequentialGroup()
+                                                    .addComponent(txtElementos, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(13, 13, 13))))
+                                        .addGroup(contentPaneLayout.createSequentialGroup()
+                                            .addGap(31, 31, 31)
+                                            .addComponent(label2)
+                                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(contentPaneLayout.createParallelGroup()
+                                                .addComponent(txtTamano, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                                                    .addComponent(btnCrearVector)
+                                                    .addGap(14, 14, 14)))))
+                                    .addGap(83, 83, 83)
+                                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 211, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                    .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label1))))
                         .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(84, 84, 84)
-                            .addComponent(btnOrdenar))
-                        .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label1, GroupLayout.Alignment.LEADING)))
+                            .addGap(139, 139, 139)
+                            .addComponent(btnOrdenar)))
                     .addContainerGap(51, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
@@ -194,11 +217,11 @@ public class InsertionSort extends JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(btnIngresar))
                         .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE))
-                    .addGap(40, 40, 40)
+                    .addGap(31, 31, 31)
                     .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addGap(18, 18, 18)
                     .addComponent(btnOrdenar)
-                    .addGap(71, 71, 71))
+                    .addContainerGap(90, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
