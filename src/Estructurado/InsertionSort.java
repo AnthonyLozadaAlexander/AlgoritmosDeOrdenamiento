@@ -65,6 +65,12 @@ public class InsertionSort extends JFrame {
 
     private void btnIngresar(ActionEvent e) {
 
+        if(count >= vectorNums.length){
+            JOptionPane.showMessageDialog(this, "El vector ya se encuentra lleno", "Error: Ingresar Elemento",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         if(txtElementos.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe Ingresar Un Elemento", "Error: Ingresar Elemento",
                     JOptionPane.ERROR_MESSAGE);
@@ -74,10 +80,12 @@ public class InsertionSort extends JFrame {
         if(!txtElementos.getText().matches(regex)){
             JOptionPane.showMessageDialog(this, "Error: Debe Ingresar Un Numero Valido", "Error: FormatoInvalido",
                     JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
        int element = Integer.parseInt(txtElementos.getText());
        vectorNums[count] = element;
+       txtDatos.append("Vector["+count+"] = " + element + "\n");
        count++;
     }
 
@@ -187,15 +195,15 @@ public class InsertionSort extends JFrame {
                                                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                                                     .addComponent(btnCrearVector)
                                                     .addGap(14, 14, 14)))))
-                                    .addGap(83, 83, 83)
-                                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 211, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(42, 42, 42)
+                                    .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 269, GroupLayout.PREFERRED_SIZE))
                                 .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                     .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label1))))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addGap(139, 139, 139)
                             .addComponent(btnOrdenar)))
-                    .addContainerGap(51, Short.MAX_VALUE))
+                    .addContainerGap(34, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
