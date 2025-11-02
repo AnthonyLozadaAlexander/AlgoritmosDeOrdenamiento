@@ -12,17 +12,29 @@ import javax.swing.*;
  * @author USUARIO
  */
 public class InsertionSort extends JFrame {
+    int [] vectorNums;
+    String regex =  "^\\d+(\\.\\d+)?$";
+
     public InsertionSort() {
         initComponents();
         setTitle("Insertion Sort");
         setLocationRelativeTo(null);
         setResizable(false);
+        btnIngresar.setEnabled(false);
+        btnOrdenar.setEnabled(false);
     }
 
     private void btnCrearVector(ActionEvent e) {
-        int tamano = Integer.parseInt(txtNums.getText());;
 
-        if(tamano == 0 || txtNums.getText().trim().isEmpty()){
+        if(!txtTamano.getText().matches(regex)){
+            JOptionPane.showMessageDialog(this, "Error: Debe Ingresar Un Numero Valido", "Error: FormatoInvalido",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int tamano = Integer.parseInt(txtTamano.getText());;
+
+        if(tamano == 0 || txtTamano.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Debe Ingresar Un Tamaño Valido", "Error: Crear Vector",
                     JOptionPane.ERROR_MESSAGE);
             return;
@@ -34,6 +46,20 @@ public class InsertionSort extends JFrame {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        if(vectorNums != null){
+            JOptionPane.showMessageDialog(this, "El Vector Ya Se Encuentra Creado", "Error: Crear Vector",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+
+        vectorNums = new int[tamano];
+        JOptionPane.showMessageDialog(this, "Vector Creado Exitosamente\n" +
+                        "vectorNums["+vectorNums.length+"]","Crear Vector", JOptionPane.INFORMATION_MESSAGE);
+
+
+        btnIngresar.setEnabled(true);
 
     }
 
