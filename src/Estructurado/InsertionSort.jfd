@@ -1,0 +1,65 @@
+﻿JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.8" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:50:p, par l {seq l {par l {seq l {space :p:81:p, comp btnIngresar:::p::p}, seq l {space :p:40:p, par t {comp label3:::p::p, seq t {comp txtElementos:::p:154:p, space :p:13:p}}}, seq l {space :p:31:p, comp label2:::p::p, space :::p, par l {comp btnCrearVector:::p::p, comp txtTamano:::p:154:p}}}, space :p:83:p, comp scrollPane1:::p:211:p}, seq l {space :p:84:p, comp btnOrdenar:::p::p}, par t:l {comp scrollPane2::t:p:240:p, comp label1::l:p::p}}, space ::51:x}}"
+			"$verticalGroup": "par l {seq {space :p:56:p, comp label1:::p::p, space s:::p, par l {seq l {par b {comp txtTamano::b:p:34:p, comp label2::b:p::p}, space s:::p, comp btnCrearVector:::p::p, space :p:27:p, comp label3:::p::p, space u:::p, comp txtElementos:::p::p, space s:::p, comp btnIngresar:::p::p}, comp scrollPane1::l:p:216:p}, space :p:40:p, comp scrollPane2:::p:96:p, space ::28:x, comp btnOrdenar:::p::p, space :p:71:p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Ordenamiento Insertion Sort"
+				"font": &Font0 new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 16 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "N:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txtTamano"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Ingresar Elementos:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txtElementos"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnIngresar"
+				"text": "Ingresar"
+				"font": &Font1 new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 14 )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "txtDatos"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnOrdenar"
+				"text": "Ordenar"
+				"font": #Font1
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "txtResultados"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnCrearVector"
+				"text": "Crear Vector"
+				"font": #Font1
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnCrearVector", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 150, 10 )
+			"size": new java.awt.Dimension( 495, 486 )
+		} )
+	}
+}
