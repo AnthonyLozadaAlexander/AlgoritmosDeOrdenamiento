@@ -25,6 +25,23 @@ public class InsertionSort extends JFrame {
         btnOrdenar.setEnabled(false);
     }
 
+    public void isEmpty(int[] vector){
+        for (int i = 0; i < vector.length; i++) {
+            if(vector[i] == 0){
+                JOptionPane.showMessageDialog(this, "El Vector no se encuentra lleno", "Error: Vector Incompleto",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+    }
+
+    public void insertionSort(int[] vector){
+        for (int i = 0; i < vector.length; i++) {
+            int valorActual = vector[i];
+        }
+    }
+
+
     private void btnCrearVector(ActionEvent e) {
 
         if(vectorNums != null){
@@ -89,6 +106,11 @@ public class InsertionSort extends JFrame {
        count++;
     }
 
+    private void btnOrdenar(ActionEvent e) {
+        isEmpty(vectorNums);
+
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Educational license - Daniel Sanchez (Anthony Lozada)
@@ -141,6 +163,7 @@ public class InsertionSort extends JFrame {
             scrollPane1.setName("scrollPane1");
 
             //---- txtDatos ----
+            txtDatos.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 12));
             txtDatos.setName("txtDatos");
             scrollPane1.setViewportView(txtDatos);
         }
@@ -149,12 +172,14 @@ public class InsertionSort extends JFrame {
         btnOrdenar.setText("Ordenar");
         btnOrdenar.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 14));
         btnOrdenar.setName("btnOrdenar");
+        btnOrdenar.addActionListener(e -> btnOrdenar(e));
 
         //======== scrollPane2 ========
         {
             scrollPane2.setName("scrollPane2");
 
             //---- txtResultados ----
+            txtResultados.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 12));
             txtResultados.setName("txtResultados");
             scrollPane2.setViewportView(txtResultados);
         }
