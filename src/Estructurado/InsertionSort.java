@@ -35,10 +35,19 @@ public class InsertionSort extends JFrame {
         }
     }
 
-    public void insertionSort(int[] vector){
+    public int insertionSort(int[] vector){
         for (int i = 0; i < vector.length; i++) {
             int valorActual = vector[i];
+            int j = i - 1;
+            while(j >= 0 && vector[j] > valorActual){
+                vector[j + 1] = vector[j];
+                j--;
+            }
+            vector[j + 1] = valorActual;
+            return valorActual;
         }
+
+        return 0;
     }
 
 
