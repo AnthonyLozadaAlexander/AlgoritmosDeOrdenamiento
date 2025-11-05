@@ -35,22 +35,6 @@ public class InsertionSort extends JFrame {
         }
     }
 
-    public int insertionSort(int[] vector){
-        for (int i = 0; i < vector.length; i++) {
-            int valorActual = vector[i];
-            int j = i - 1;
-            while(j >= 0 && vector[j] > valorActual){
-                vector[j + 1] = vector[j];
-                j--;
-            }
-            vector[j + 1] = valorActual;
-            return valorActual;
-        }
-
-        return 0;
-    }
-
-
     private void btnCrearVector(ActionEvent e) {
 
         if(vectorNums != null){
@@ -123,12 +107,23 @@ public class InsertionSort extends JFrame {
 
     private void btnOrdenar(ActionEvent e) {
         isEmpty(vectorNums);
-        insertionSort(vectorNums);
         for (int i = 0; i < vectorNums.length; i++) {
-            txtResultados.append(vectorNums[i] + ", ");
+            int valorActual = vectorNums[i];
+            int j = i - 1;
+            while(j >= 0 && vectorNums[j] > valorActual){
+                vectorNums[j + 1] = vectorNums[j];
+                j--;
+            }
+            vectorNums[j + 1] = valorActual;
+        }
 
-            if(i == vectorNums.length - 1){
-                txtResultados.append("\n");
+        for (int i = 0; i < vectorNums.length; i++) {
+            txtResultados.append(Integer.toString(vectorNums[i]));
+            if(i == vectorNums.length - 1) {
+                txtResultados.append(",");
+            }
+            else{
+                txtResultados.append("." + "\n");
             }
         }
 
@@ -203,6 +198,7 @@ public class InsertionSort extends JFrame {
 
             //---- txtResultados ----
             txtResultados.setFont(new Font("CaskaydiaMono NF SemiBold", Font.PLAIN, 12));
+            txtResultados.setEditable(false);
             txtResultados.setName("txtResultados");
             scrollPane2.setViewportView(txtResultados);
         }
