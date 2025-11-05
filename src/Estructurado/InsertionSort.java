@@ -120,6 +120,10 @@ public class InsertionSort extends JFrame {
         insertionSort(vectorNums);
         for (int i = 0; i < vectorNums.length; i++) {
             txtResultados.append(vectorNums[i] + ", ");
+
+            if(i == vectorNums.length - 1){
+                txtResultados.append("\n");
+            }
         }
 
     }
