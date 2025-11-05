@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :p:50:p, par l {seq l {par l {seq l {space :p:81:p, comp btnIngresar:::p::p}, seq l {space :p:40:p, par t {comp label3:::p::p, seq t {comp txtElementos:::p:154:p, space :p:13:p}}}, seq l {space :p:31:p, comp label2:::p::p, space :::p, par l {comp txtTamano:::p:154:p, seq t {comp btnCrearVector:::p::p, space :p:14:p}}}}, space :p:83:p, comp scrollPane1:::p:211:p}, par t:l {comp scrollPane2:::p:240:p, comp label1:::p::p}}}, seq l {space :p:139:p, comp btnOrdenar:::p::p}}, space ::51:x}}"
-			"$verticalGroup": "par l {seq {space :p:56:p, comp label1:::p::p, space s:::p, par l {seq l {par b {comp txtTamano::b:p:34:p, comp label2::b:p::p}, space s:::p, comp btnCrearVector:::p::p, space :p:27:p, comp label3:::p::p, space u:::p, comp txtElementos:::p::p, space s:::p, comp btnIngresar:::p::p}, comp scrollPane1::l:p:216:p}, space :p:31:p, comp scrollPane2:::p:96:p, space s:::p, comp btnOrdenar:::p::p, space ::90:x}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:50:p, par l {seq l {par l {seq l {space :p:81:p, comp btnIngresar:::p::p}, seq l {space :p:40:p, par t {comp label3:::p::p, seq t {comp txtElementos:::p:154:p, space :p:13:p}}}, seq l {space :p:31:p, comp label2:::p::p, space :::p, par l {comp txtTamano:::p:154:p, seq t {comp btnCrearVector:::p::p, space :p:14:p}}}}, space :p:42:p, comp scrollPane1:::p:269:p}, par t:l {comp scrollPane2:::p:240:p, comp label1:::p::p}}}, seq l {space :p:139:p, comp btnOrdenar:::p::p}}, space ::34:x}}"
+			"$verticalGroup": "par l {seq {space :p:56:p, comp label1:::p::p, space s:::p, par l {seq {par b {comp txtTamano::b:p:34:p, comp label2::b:p::p}, space s:::p, comp btnCrearVector:::p::p, space :p:27:p, comp label3:::p::p, space u:::p, comp txtElementos:::p::p, space s:::p, comp btnIngresar:::p::p}, comp scrollPane1::l:p:216:p}, space :p:31:p, comp scrollPane2:::p:96:p, space s:::p, comp btnOrdenar:::p::p, space ::90:x}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -39,17 +39,20 @@ new FormModel {
 				name: "scrollPane1"
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "txtDatos"
+					"font": new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 12 )
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btnOrdenar"
 				"text": "Ordenar"
 				"font": #Font1
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnOrdenar", true ) )
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane2"
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "txtResultados"
+					"font": new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 12 )
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
