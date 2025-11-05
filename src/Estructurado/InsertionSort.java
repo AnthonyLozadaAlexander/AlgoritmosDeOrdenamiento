@@ -118,14 +118,13 @@ public class InsertionSort extends JFrame {
         }
 
         for (int i = 0; i < vectorNums.length; i++) {
-            txtResultados.append(Integer.toString(vectorNums[i]));
-            if(i == vectorNums.length - 1) {
-                txtResultados.append(",");
-            }
-            else{
-                txtResultados.append("." + "\n");
+            txtResultados.append(vectorNums[i] + "");
+            if(i < vectorNums.length - 1){
+                txtResultados.append(", ");
             }
         }
+
+        txtResultados.append("\n");
 
     }
 
