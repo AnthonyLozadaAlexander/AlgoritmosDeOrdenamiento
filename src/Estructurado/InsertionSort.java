@@ -117,6 +117,10 @@ public class InsertionSort extends JFrame {
 
     private void btnOrdenar(ActionEvent e) {
         isEmpty(vectorNums);
+        insertionSort(vectorNums);
+        for (int i = 0; i < vectorNums.length; i++) {
+            txtResultados.append(vectorNums[i] + ", ");
+        }
 
     }
 
