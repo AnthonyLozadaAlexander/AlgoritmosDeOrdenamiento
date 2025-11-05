@@ -53,6 +53,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "txtResultados"
 					"font": new java.awt.Font( "CaskaydiaMono NF SemiBold", 0, 12 )
+					"editable": false
 				} )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
