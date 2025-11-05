@@ -113,6 +113,12 @@ public class InsertionSort extends JFrame {
        vectorNums[count] = element;
        txtDatos.append("Vector["+count+"] = " + element + "\n");
        count++;
+
+       if(count == vectorNums.length){
+           JOptionPane.showMessageDialog(this, "El vector se ha llenado", "Vector Lleno", JOptionPane.INFORMATION_MESSAGE);
+              btnIngresar.setEnabled(false);
+                btnOrdenar.setEnabled(true);
+       }
     }
 
     private void btnOrdenar(ActionEvent e) {
