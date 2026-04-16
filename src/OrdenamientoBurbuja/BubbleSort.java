@@ -3,6 +3,10 @@
 public class BubbleSort {
     public static void main(String[] args) {
          int[] nums = {5, 1, 4, 2, 8};
+        System.out.println("Original");
+         mostrarArray(nums);
+        System.out.println("Ordenado Burbuja");
+         mostrarArray(BubbleSort(nums));
     }
 
     public static int[] BubbleSort(int[] arr){
