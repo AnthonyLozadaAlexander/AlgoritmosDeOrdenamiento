@@ -19,4 +19,10 @@ public class BubbleSort {
 
         return arr;
     }
+
+    public static void mostrarArray(int[] arry){
+        for (int i = 0; i < arry.length; i++) {
+            System.out.println("["+i+"] = " + arry[i]);
+        }
+    }
 }
