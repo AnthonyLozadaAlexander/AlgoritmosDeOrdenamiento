@@ -1,4 +1,4 @@
-﻿package OrdenamientoBurbuja;
+package OrdenamientoBurbuja;
 
 public class BubbleSort {
     public static void main(String[] args) {
