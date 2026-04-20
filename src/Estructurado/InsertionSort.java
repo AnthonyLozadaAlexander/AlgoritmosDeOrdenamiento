@@ -28,7 +28,7 @@ public class InsertionSort extends JFrame {
     public void isEmpty(int[] vector){
         for (int i = 0; i < vector.length; i++) {
             if(vector[i] == 0){
-                JOptionPane.showMessageDialog(this, "El Vector no se encuentra lleno", "Error: Vector Incompleto",
+                JOptionPane.showMessageDialog(this, "El Vector Se Encuentra Vacio", "Error: Vector Incompleto",
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
