@@ -35,8 +35,9 @@ public class InsertionSort {
     static void imprimirArr(int[] num){
         System.out.print("[ ");
         for (int i = 0; i < num.length; i++) {
+            if(i < num.length - 1)
             System.out.print(num[i] + ", ");
-            if(i == num.length - 2){
+            if(i == num.length - 1){
                 System.out.print(num[i]);
             }
         }
