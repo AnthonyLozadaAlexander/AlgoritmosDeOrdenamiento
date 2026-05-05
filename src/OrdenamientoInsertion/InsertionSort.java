@@ -1,8 +1,18 @@
-﻿package OrdenamientoInsertion;
+package OrdenamientoInsertion;
 
 public class InsertionSort {
     static void main(String[] args) {
-     int[] arr = {4,5,2,7,8};
+        long timeStart = System.currentTimeMillis();
+        int[] arr = {4,5,2,7,8};
+        System.out.println("Array Original: ");
+        imprimirArr(arr);
+        System.out.println("----------------");
+        insertionSort(arr);
+        System.out.println("Array Ordenado: ");
+        imprimirArr(arr);
+        System.out.println("----------------");
+        long endTime = System.currentTimeMillis();
+        System.out.println("Tiempo De Ejecucion Total: " + (endTime - timeStart) + " ms");
 
     }
 
