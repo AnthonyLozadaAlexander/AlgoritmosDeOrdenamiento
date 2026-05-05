@@ -3,6 +3,7 @@
 public class InsertionSort {
     static void main(String[] args) {
      int[] arr = {4,5,2,7,8};
+
     }
 
     static void insertionSort(int[] num){
@@ -19,5 +20,16 @@ public class InsertionSort {
 
             num[j + 1]= elemento;
         }
+    }
+
+    static void imprimirArr(int[] num){
+        System.out.print("[ ");
+        for (int i = 0; i < num.length; i++) {
+            System.out.print(num[i] + ", ");
+            if(i == num.length - 2){
+                System.out.print(num[i]);
+            }
+        }
+        System.out.print(" ]");
     }
 }
